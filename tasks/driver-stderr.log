@@ -1,0 +1,118 @@
+23/11/06 19:54:00 INFO SparkContext: Running Spark version 3.5.0
+23/11/06 19:54:00 INFO SparkContext: OS info Mac OS X, 12.5.1, x86_64
+23/11/06 19:54:00 INFO SparkContext: Java version 17.0.9
+23/11/06 19:54:00 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+23/11/06 19:54:00 INFO ResourceUtils: ==============================================================
+23/11/06 19:54:00 INFO ResourceUtils: No custom resources configured for spark.driver.
+23/11/06 19:54:00 INFO ResourceUtils: ==============================================================
+23/11/06 19:54:00 INFO SparkContext: Submitted application: WordCountWithSpark
+23/11/06 19:54:00 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+23/11/06 19:54:00 INFO ResourceProfile: Limiting resource is cpu
+23/11/06 19:54:00 INFO ResourceProfileManager: Added ResourceProfile id: 0
+23/11/06 19:54:00 INFO SecurityManager: Changing view acls to: Lorena
+23/11/06 19:54:00 INFO SecurityManager: Changing modify acls to: Lorena
+23/11/06 19:54:00 INFO SecurityManager: Changing view acls groups to: 
+23/11/06 19:54:00 INFO SecurityManager: Changing modify acls groups to: 
+23/11/06 19:54:00 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Lorena; groups with view permissions: EMPTY; users with modify permissions: Lorena; groups with modify permissions: EMPTY
+23/11/06 19:54:00 INFO Utils: Successfully started service 'sparkDriver' on port 50846.
+23/11/06 19:54:00 INFO SparkEnv: Registering MapOutputTracker
+23/11/06 19:54:00 INFO SparkEnv: Registering BlockManagerMaster
+23/11/06 19:54:00 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+23/11/06 19:54:00 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+23/11/06 19:54:00 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+23/11/06 19:54:00 INFO DiskBlockManager: Created local directory at /private/var/folders/4x/zyqt0lhj12n2r1v2pq_hyjpw0000gn/T/blockmgr-6bc39663-6628-42d6-b93d-f4a0187c3884
+23/11/06 19:54:00 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+23/11/06 19:54:00 INFO SparkEnv: Registering OutputCommitCoordinator
+23/11/06 19:54:01 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+23/11/06 19:54:01 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+23/11/06 19:54:01 INFO Utils: Successfully started service 'SparkUI' on port 4041.
+23/11/06 19:54:01 INFO SparkContext: Added JAR file:/Users/Lorena/Documents/Assignment3/tasks/app/build/libs/app.jar at spark://macbook-pro-lorena.fritz.box:50846/jars/app.jar with timestamp 1699296840206
+23/11/06 19:54:01 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://192.168.188.21:7077...
+23/11/06 19:54:01 INFO TransportClientFactory: Successfully created connection to /192.168.188.21:7077 after 23 ms (0 ms spent in bootstraps)
+23/11/06 19:54:01 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20231106195401-0013
+23/11/06 19:54:01 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20231106195401-0013/0 on worker-20231106123732-192.168.188.21-49385 (192.168.188.21:49385) with 8 core(s)
+23/11/06 19:54:01 INFO StandaloneSchedulerBackend: Granted executor ID app-20231106195401-0013/0 on hostPort 192.168.188.21:49385 with 8 core(s), 1024.0 MiB RAM
+23/11/06 19:54:01 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 50848.
+23/11/06 19:54:01 INFO NettyBlockTransferService: Server created on macbook-pro-lorena.fritz.box:50848
+23/11/06 19:54:01 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+23/11/06 19:54:01 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, macbook-pro-lorena.fritz.box, 50848, None)
+23/11/06 19:54:01 INFO BlockManagerMasterEndpoint: Registering block manager macbook-pro-lorena.fritz.box:50848 with 434.4 MiB RAM, BlockManagerId(driver, macbook-pro-lorena.fritz.box, 50848, None)
+23/11/06 19:54:01 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, macbook-pro-lorena.fritz.box, 50848, None)
+23/11/06 19:54:01 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, macbook-pro-lorena.fritz.box, 50848, None)
+23/11/06 19:54:01 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20231106195401-0013/0 is now RUNNING
+23/11/06 19:54:01 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+23/11/06 19:54:02 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 221.5 KiB, free 434.2 MiB)
+23/11/06 19:54:02 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 32.6 KiB, free 434.2 MiB)
+23/11/06 19:54:02 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on macbook-pro-lorena.fritz.box:50848 (size: 32.6 KiB, free: 434.4 MiB)
+23/11/06 19:54:02 INFO SparkContext: Created broadcast 0 from textFile at WordCount.java:53
+23/11/06 19:54:02 INFO FileInputFormat: Total input files to process : 1
+Exception in thread "main" org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://192.168.188.21:9870/sparkApp/output_testhadoop_2 already exists
+	at org.apache.hadoop.mapred.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:131)
+	at org.apache.spark.internal.io.HadoopMapRedWriteConfigUtil.assertConf(SparkHadoopWriter.scala:299)
+	at org.apache.spark.internal.io.SparkHadoopWriter$.write(SparkHadoopWriter.scala:71)
+	at org.apache.spark.rdd.PairRDDFunctions.$anonfun$saveAsHadoopDataset$1(PairRDDFunctions.scala:1091)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:407)
+	at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopDataset(PairRDDFunctions.scala:1089)
+	at org.apache.spark.rdd.PairRDDFunctions.$anonfun$saveAsHadoopFile$4(PairRDDFunctions.scala:1062)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:407)
+	at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopFile(PairRDDFunctions.scala:1027)
+	at org.apache.spark.rdd.PairRDDFunctions.$anonfun$saveAsHadoopFile$3(PairRDDFunctions.scala:1009)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:407)
+	at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopFile(PairRDDFunctions.scala:1008)
+	at org.apache.spark.rdd.PairRDDFunctions.$anonfun$saveAsHadoopFile$2(PairRDDFunctions.scala:965)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:407)
+	at org.apache.spark.rdd.PairRDDFunctions.saveAsHadoopFile(PairRDDFunctions.scala:963)
+	at org.apache.spark.rdd.RDD.$anonfun$saveAsTextFile$2(RDD.scala:1620)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:407)
+	at org.apache.spark.rdd.RDD.saveAsTextFile(RDD.scala:1620)
+	at org.apache.spark.rdd.RDD.$anonfun$saveAsTextFile$1(RDD.scala:1606)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:407)
+	at org.apache.spark.rdd.RDD.saveAsTextFile(RDD.scala:1606)
+	at org.apache.spark.api.java.JavaRDDLike.saveAsTextFile(JavaRDDLike.scala:564)
+	at org.apache.spark.api.java.JavaRDDLike.saveAsTextFile$(JavaRDDLike.scala:563)
+	at org.apache.spark.api.java.AbstractJavaRDDLike.saveAsTextFile(JavaRDDLike.scala:45)
+	at com.assignment3.spark.WordCount.main(WordCount.java:76)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.apache.spark.deploy.JavaMainApplication.start(SparkApplication.scala:52)
+	at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:1029)
+	at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:194)
+	at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:217)
+	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:91)
+	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1120)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1129)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+23/11/06 19:54:03 INFO SparkContext: Invoking stop() from shutdown hook
+23/11/06 19:54:03 INFO SparkContext: SparkContext is stopping with exitCode 0.
+23/11/06 19:54:03 INFO SparkUI: Stopped Spark web UI at http://macbook-pro-lorena.fritz.box:4041
+23/11/06 19:54:03 INFO StandaloneSchedulerBackend: Shutting down all executors
+23/11/06 19:54:03 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asking each executor to shut down
+23/11/06 19:54:03 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+23/11/06 19:54:03 INFO MemoryStore: MemoryStore cleared
+23/11/06 19:54:03 INFO BlockManager: BlockManager stopped
+23/11/06 19:54:03 INFO BlockManagerMaster: BlockManagerMaster stopped
+23/11/06 19:54:03 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+23/11/06 19:54:03 INFO SparkContext: Successfully stopped SparkContext
+23/11/06 19:54:03 INFO ShutdownHookManager: Shutdown hook called
+23/11/06 19:54:03 INFO ShutdownHookManager: Deleting directory /private/var/folders/4x/zyqt0lhj12n2r1v2pq_hyjpw0000gn/T/spark-6ee1f49b-847e-4456-a7af-aeebd19f2704
+23/11/06 19:54:03 INFO ShutdownHookManager: Deleting directory /private/var/folders/4x/zyqt0lhj12n2r1v2pq_hyjpw0000gn/T/spark-22efb674-155f-42bb-bd8b-325d70e525c2

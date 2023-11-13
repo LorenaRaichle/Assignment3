@@ -17,6 +17,8 @@ import org.apache.spark.sql.Dataset;
 
 public class WordCount {
 
+    //FlatMapFunction interface is provided by spark (also: call method)
+    //<String, String> = <input, output>
     static class Filter implements FlatMapFunction<String, String>
     {
         @Override
@@ -24,18 +26,36 @@ public class WordCount {
             /*
              * add your code to filter words
              */
-            String[] subStrings = s.split("\\s+");
-            return Arrays.asList(subStrings).iterator();
+            // s = line of text
+            String[] words = s.split("\\s+");
+            List<String> filteredWords = new ArrayList<>();
+            for (String word : words) {
+                // Clean each word and convert it to lowercase
+                word = word.replaceAll("[^a-zA-Z]", "").toLowerCase();
+                if (!word.isEmpty()) {
+                    filteredWords.add(word);
+                }
+            }
+            // returning an iterator over the array of cleaned words
+            return filteredWords.iterator();
         }
 
     }
 
     public static void main(String[] args) {
-        String textFilePath = "input/pigs.txt"; // update to HDFS url for task2
-        SparkConf conf = new SparkConf().setAppName("WordCountWithSpark").setMaster("local[*]"); // task2: update the setMaster with your cluster master URL for executing this code on the cluster
+        //String textFilePath = "input/pigs.txt"; // update to HDFS url for task2
+        String textFilePath = "hdfs://192.168.188.21:9870/sparkApp/input/pigs.txt"; // update to HDFS url for task2
+        SparkConf conf = new SparkConf().setAppName("WordCountWithSpark").setMaster("spark://192.168.188.21:7077"); // task2: update the setMaster with your cluster master URL for executing this code on the cluster
+
+
         JavaSparkContext sparkContext =  new JavaSparkContext(conf);
+        // create string out of input file (for parallel distribution)
         JavaRDD<String> textFile = sparkContext.textFile(textFilePath);
+
+        // in the flatmap call on a RDD, the call method is internally called
+        // textFile = RDD of strings / lines
         JavaRDD<String> words = textFile.flatMap(new Filter());
+        // result: new RDD object, each line split into words
 
         /*
          * add your code for key value mapping
@@ -45,6 +65,23 @@ public class WordCount {
          * print the word count and save the output in the format, e.g.,(in:15) to an 'output' folder (on HDFS for task 2)
          * try to consolidate your output into single text file if you want to check your output against the given sample output
          */
+
+        //mapping to key (word) and value (1) pairs
+        // Convert each word into a key-value pair (word, 1)
+        JavaPairRDD<String, Integer> pairs = words.mapToPair(s -> new Tuple2<>(s, 1));
+        // Reduce the pairs by key (word) to sum up the counts
+        JavaPairRDD<String, Integer> counts = pairs.reduceByKey(Integer::sum);
+
+        // To consolidate output into one file, coalesce the RDD before saving
+        counts.saveAsTextFile("hdfs://192.168.188.21:9870/sparkApp/output_task2_final");
+        //counts.coalesce(1).saveAsTextFile("/sparkApp/output2");
+        //counts.coalesce(1).saveAsTextFile("/specific/path/to/output/directory");
+
+        List<Tuple2<String, Integer>> countList = counts.collect();
+        for (Tuple2<String, Integer> count : countList) {
+            System.out.println(count._1() + ": " + count._2());
+        }
+
         sparkContext.stop();
         sparkContext.close();
     }
