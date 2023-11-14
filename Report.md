@@ -32,8 +32,8 @@ These advantages are especially important to consider for large datasets. Since 
 What does your preferred method do in your implementation? 
 > Ans:
 - In the given code, first the flatmap transformation is applied to the input data to generate the dataset words (Java RDD).
-- Then the mapToPair mehtod is used to map each word to a key value pair with the key = word and value = 1 for every pair.
-- The the ReduceByKey method is used to merge the values for each key (adding up counts for each word) on each partition. This minimizes the amount of data tansfer that is necessary.
+- Then the mapToPair method is used to map each word to a key value pair with the key = word and value = 1 for every pair.
+- The ReduceByKey method is used to merge the values for each key (adding up counts for each word) on each partition. This minimizes the amount of data transfer that is necessary.
 
 What are the differences between the two methods in Spark?
 > Ans: 
